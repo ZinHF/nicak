@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Jawaban</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #fdf7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      color: #ff6f61;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #yes {
+      background-color: #4caf50;
+      color: white;
+    }
+    #no {
+      background-color: #f44336;
+      color: white;
+      position: relative;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Penasaran kah ?</h1>
+    <button id="yes" onclick="chooseYes()">tentu</button>
+    <button id="no" onmouseover="moveNo()">ga blass</button>
+  </div>
+
+  <script>
+    function chooseYes() {
+      // Pindah ke halaman berikutnya
+      window.location.href = "pesan.html";
+    }
+
+    function moveNo() {
+      const noButton = document.getElementById("no");
+      const container = document.querySelector(".container");
+
+      // Generate random position
+      const containerWidth = container.offsetWidth;
+      const containerHeight = container.offsetHeight;
+      const randomX = Math.random() * (containerWidth - 100); // 100 to prevent button from going out of bounds
+      const randomY = Math.random() * (containerHeight - 50); // 50 for button height
+
+      // Apply new position
+      noButton.style.position = "absolute";
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+    }
+  </script>
+</body>
+</html>
